@@ -1,4 +1,3 @@
-export * from "./validationSchema";
 export * from "./object";
 export * from "./object/megaMenu";
 

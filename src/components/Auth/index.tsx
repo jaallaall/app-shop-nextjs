@@ -66,18 +66,18 @@ const Register: React.FC = (): React.ReactElement => {
               </span>
             </button>
           </form>
-          <PinInputCustom
-          // isClicked={isClicked}
-          // telephone={values.telephone}
-          // setPincode={setPincode}
-          // pincode={pincode}
-          // setValidate={setValidate}
-          // validate={validate}
-          // setDisabled={setDisabled}
-          // disabled={disabled}
-          // setError={setError}
-          // error={error}
-          />
+          {/* <PinInputCustom
+          isClicked={isClicked}
+          telephone={values.telephone}
+          setPincode={setPincode}
+          pincode={pincode}
+          setValidate={setValidate}
+          validate={validate}
+          setDisabled={setDisabled}
+          disabled={disabled}
+          setError={setError}
+          error={error}
+          /> */}
         </div>
       </div>
       <div className="hidden sm:contents lg:relative lg:block lg:flex-1">
