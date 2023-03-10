@@ -25,10 +25,10 @@ const ProductCard: React.FC<{
   const dispatch = useAppDispatch();
   const cart = useAppSelector((state) => state.cartItems);
 
-  // const handleChange = (e: React.ChangeEventHandler<HTMLInputElement>) => {
-  //   setInputVal(e.target.value);
-  //   dispatch(valueQuantity(e.target.value));
-  // };
+  const handleChange = (e: any) => {
+    setInputVal(e.target.value);
+    dispatch(valueQuantity(e.target.value));
+  };
 
   const isQuan =
     cart.length > 0 ? cart?.find((it) => it.id === item.id)?.quantity : 0;

@@ -72,7 +72,7 @@ const Header: React.FC = (): React.ReactElement => {
           {matches && <CartDetails />}
         </div>
       </div>
-      <div className="container mx-auto pt-3 px-2">
+      <div className="container mx-auto pt-3 md:px-2">
         <Menu show={show} />
       </div>
     </header>

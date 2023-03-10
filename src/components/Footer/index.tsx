@@ -1,7 +1,9 @@
+import Image from "next/image";
+
 const Footer: React.FC = (): React.ReactElement => {
   return (
-    <footer className="bg-neutral-100 text-center text-neutral-600 dark:bg-neutral-600 dark:text-neutral-200 lg:text-right">
-      <div className="container mx-auto">
+    <footer className="bg-white text-center text-neutral-600 dark:bg-neutral-600 dark:text-neutral-200 lg:text-right">
+      <div className="container mx-auto px-3">
         <div className="flex items-center justify-center border-b-2 border-neutral-200 p-6 dark:border-neutral-500 lg:justify-between">
           <div className="ml-12 hidden lg:block">
             <span>ما را در شبکه های اجتماعی دنبال کنید</span>
@@ -160,15 +162,28 @@ const Footer: React.FC = (): React.ReactElement => {
           </div>
         </div>
       </div>
-      <div className="bg-neutral-200 p-6 text-center dark:bg-neutral-700">
-        <div className="container mx-auto">
-          <span>
-            پایپ کالا فروشگاه اینترنتی موفق در تامین اقلام تاسیساتی ساختمان از
-            سال ۱۳۹۳ فعالیتش را در ایران آغاز کرد. طی این سالها پایپ کالا هدف
-            خود را اطلاع رسانی صادقانه قیمت و فروش شفاف اقلام قرار داده و تا به
-            حالا موفق بوده بیش از 100 ها پروژه ساختمانی و صنعتی را با بهترین
-            پشتیبانی پوشش دهد.
-          </span>
+      <div className="bg-neutral-200 p-6 dark:bg-neutral-700">
+        <div className="container mx-auto px-3">
+          <div className="flex">
+            <div className="basis-2/3">
+              <p>
+                پایپ کالا فروشگاه اینترنتی موفق در تامین اقلام تاسیساتی ساختمان
+                از سال ۱۳۹۳ فعالیتش را در ایران آغاز کرد. طی این سالها پایپ کالا
+                هدف خود را اطلاع رسانی صادقانه قیمت و فروش شفاف اقلام قرار داده
+                و تا به حالا موفق بوده بیش از 100 ها پروژه ساختمانی و صنعتی را
+                با بهترین پشتیبانی پوشش دهد.
+              </p>
+            </div>
+            <div className="basis-1/3">
+              <Image
+                src="/static/images/samandehi-enemad-logo.png"
+                alt="samandehi"
+                width="70"
+                height="70"
+                style={{ marginRight: "auto" }}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </footer>

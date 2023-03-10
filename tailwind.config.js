@@ -39,6 +39,9 @@ module.exports = {
           scrollbarColor: theme("colors.blue-500"),
           scrollbarWidth: "thin",
         },
+        ".scrollbar-none": {
+          overflowY: "unset",
+        },
         ".scrollbar::-webkit-scrollbar": {
           height: "4px",
           width: "5px",

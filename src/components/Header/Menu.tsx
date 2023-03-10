@@ -32,21 +32,21 @@ const Menu: React.FC<{ show: boolean }> = ({ show }): React.ReactElement => {
 
   useOnClickOutside(ref, handleClickOutside);
   return (
-    <div className="flex w-full flex-wrap items-center justify-between relative">
+    <div className="md:flex w-full flex-wrap items-center justify-between relative">
       <div
-        className={`grow basis-[100%] items-center lg:!flex lg:basis-auto scrollbar ${
+        className={`grow basis-[100%] items-center lg:!flex lg:basis-auto scrollbar h-[calc(100vh_-_100px)] md:h-auto  ${
           show ? "" : "hidden"
         } `}
       >
         <div ref={ref}>
           <div
             onClick={() => setShowMenu(!showMenu)}
-            className="block transition duration-150 ease-in-out hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:hover:text-white dark:focus:text-white lg:p-2 [&.active]:text-black/90 cursor-pointer"
+            className="block transition duration-150 ease-in-out hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:hover:text-white dark:focus:text-white lg:p-2 [&.active]:text-black/90 cursor-pointer p-2"
           >
             دسته بندی
           </div>
           {showMenu && (
-            <div className="md:absolute left-0 right-0 bg-white rounded-br-md rounded-bl-md h-[calc(100vh_-_200px)]">
+            <div className="md:absolute left-0 right-0 bg-white rounded-br-lg rounded-bl-lg overflow-hidden md:h-[calc(100vh_-_150px)]">
               <MegaMenu />
             </div>
           )}
@@ -56,7 +56,7 @@ const Menu: React.FC<{ show: boolean }> = ({ show }): React.ReactElement => {
             return (
               <li key={item.id}>
                 <a
-                  className="block transition duration-150 ease-in-out hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:hover:text-white dark:focus:text-white lg:p-2 [&.active]:text-black/90"
+                  className="block transition duration-150 ease-in-out hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:hover:text-white dark:focus:text-white lg:p-2 [&.active]:text-black/90 p-2"
                   href={item.href}
                 >
                   {item.name}

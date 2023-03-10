@@ -70,8 +70,8 @@ const ProductsCarousel: React.FC = (): React.ReactElement => {
         {product.map((item) => {
           return (
             <SwiperSlide key={item.id}>
-              <div className="min-h-[300px] border p-3 flex flex-col rounded-lg">
-                <h4 className="mb-3">{item.title}</h4>
+              <div className="min-h-[280px] border p-3 flex flex-col rounded-lg bg-white">
+                <h3 className="mb-3">{item.title}</h3>
                 <div className="flex justify-between mt-auto">
                   <span>بنکن</span>
                   <span className="inline-block whitespace-nowrap rounded-[0.27rem] bg-danger-100 px-[0.65em] pt-[0.55em] pb-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none text-primary-700">

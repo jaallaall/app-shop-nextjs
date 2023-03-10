@@ -43,7 +43,7 @@ export const cartSlice = createSlice({
     valueQuantity: (state, action) => {
       console.log(state);
       const item = state.cartItems.find((item) => item.id === action.payload);
-      if (item) item.quantity = action.payload;
+      if (item) state.quantity = action.payload;
     },
     incrementQuantity: (state, action) => {
       const item = state?.cartItems?.find((item) => item.id === action.payload);

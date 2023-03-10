@@ -1,12 +1,20 @@
+import PurchaseProcess from "components/PurchaseProcess";
 import ProductsCarousel from "./ProductsCarousel";
 
 const Home: React.FC = (): React.ReactElement => {
   return (
-    <section>
-      <div className="container mx-auto px-2">
-        <ProductsCarousel />
-      </div>
-    </section>
+    <>
+      <section>
+        <div className="container mx-auto px-2">
+          <ProductsCarousel />
+        </div>
+      </section>
+      <section>
+        <div className="container mx-auto px-2">
+          <PurchaseProcess />
+        </div>
+      </section>
+    </>
   );
 };
 

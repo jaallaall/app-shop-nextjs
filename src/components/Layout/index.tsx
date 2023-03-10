@@ -36,7 +36,7 @@ export default function Layout({
       {children}
       <Footer />
       {!matches && (
-        <footer className="sticky bottom-0 bg-white z-50 border-t">
+        <footer className="sticky bottom-0 bg-white z-40 border-t">
           <div className="grid grid-cols-3">
             <CartDetails />
           </div>
