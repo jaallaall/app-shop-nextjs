@@ -12,12 +12,7 @@ const CartDetails: React.FC = (): React.ReactElement => {
   const checked = useAppSelector((state) => state.checked);
 
   const handleClick = () => {
-    // document.body.removeAttribute("style");
-    // let element = document.createElement("div");
-    // element.style.cssText =
-    //   "position:absolute;width:100%;height:100%;opacity:0.3;z-index:100;background:#000;";
-    // document.body.style.overflow = "hidden";
-    // document.body.append(element);
+    document.body.classList.add("overflow-hidden");
     setShow(true);
   };
 
@@ -35,6 +30,7 @@ const CartDetails: React.FC = (): React.ReactElement => {
   const totalWithDiscount = (getItemsPrice() * 100) / getItemsDiscount();
 
   const handleClickOutside = () => {
+    document.body.classList.remove("overflow-hidden");
     setShow(false);
     // element.remove();
   };

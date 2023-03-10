@@ -27,7 +27,7 @@ export default function Layout({
   return (
     <>
       <Head>
-        <title>{tit}</title>
+        <title>{"صفحه نخست"}</title>
         <meta name="description" content={content} />
         <link rel="icon" href="/favicon.ico" />
       </Head>

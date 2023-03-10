@@ -26,7 +26,13 @@ const Menu: React.FC<{ show: boolean }> = ({ show }): React.ReactElement => {
 
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
+  const handleClick = () => {
+    document.body.classList.add("overflow-hidden");
+    setShowMenu(!showMenu);
+  };
+
   const handleClickOutside = () => {
+    document.body.classList.remove("overflow-hidden");
     setShowMenu(false);
   };
 
@@ -40,7 +46,7 @@ const Menu: React.FC<{ show: boolean }> = ({ show }): React.ReactElement => {
       >
         <div ref={ref}>
           <div
-            onClick={() => setShowMenu(!showMenu)}
+            onClick={handleClick}
             className="block transition duration-150 ease-in-out hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:hover:text-white dark:focus:text-white lg:p-2 [&.active]:text-black/90 cursor-pointer p-2"
           >
             دسته بندی

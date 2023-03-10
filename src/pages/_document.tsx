@@ -6,7 +6,7 @@ export default function Document() {
       <Head />
       <body>
         <Main />
-        {/* <div id="overlay" /> */}
+        <div id="overlay" />
         <NextScript />
       </body>
     </Html>
