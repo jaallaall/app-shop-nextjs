@@ -1,16 +1,19 @@
-import { Inter } from "next/font/google";
 import { nextDynamic } from "components";
-import Layout from "components/Layout";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { Inter } from "next/font/google";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const HomePage = () => {
-  const Home = nextDynamic("Home");
+const LoginPage = () => {
+  const Login = nextDynamic("Auth");
   return (
-    <Layout>
-      <Home />
-    </Layout>
+    <>
+      <Head>
+        <title>{"ورود"}</title>
+      </Head>
+      <Login />
+    </>
   );
 };
 
@@ -25,4 +28,4 @@ export async function getServerSideProps({ locale }: { locale: string }) {
   };
 }
 
-export default HomePage;
+export default LoginPage;
