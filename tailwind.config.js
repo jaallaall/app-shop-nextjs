@@ -23,6 +23,10 @@ module.exports = {
         secondary: {
           100: "#F1F2F4",
         },
+        info: {
+          DEFAULT: "#092474",
+          light: "#B4CBF9",
+        },
         danger: {
           100: "#f9c2cd",
           DEFAULT: "#f97a93",

@@ -41,9 +41,10 @@ export const cartSlice = createSlice({
       state.checked = action.payload;
     },
     valueQuantity: (state, action) => {
-      console.log(state);
-      const item = state.cartItems.find((item) => item.id === action.payload);
-      if (item) state.quantity = action.payload;
+      const itemIndex = state.cartItems.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      state.cartItems[itemIndex].quantity = action.payload.quantity;
     },
     incrementQuantity: (state, action) => {
       const item = state?.cartItems?.find((item) => item.id === action.payload);

@@ -1,8 +1,21 @@
 import { useOnClickOutside } from "hooks";
-import { useRef, useState } from "react";
-import { handleChangeChecked, removeFromCart } from "redux/cart.slice";
+import { useCallback, useRef, useState } from "react";
+import {
+  handleChangeChecked,
+  removeFromCart,
+  valueQuantity,
+} from "redux/cart.slice";
 import { useAppDispatch, useAppSelector } from "redux/hooks";
 import { amount } from "utils";
+
+interface Props {
+  id: number;
+  title: string;
+  discount: number;
+  size: number;
+  price: number;
+  quantity?: number;
+}
 
 const CartDetails: React.FC = (): React.ReactElement => {
   const ref = useRef(null);
@@ -12,7 +25,6 @@ const CartDetails: React.FC = (): React.ReactElement => {
   const checked = useAppSelector((state) => state.checked);
 
   const handleClick = () => {
-    document.body.classList.add("overflow-hidden");
     setShow(true);
   };
 
@@ -30,12 +42,18 @@ const CartDetails: React.FC = (): React.ReactElement => {
   const totalWithDiscount = (getItemsPrice() * 100) / getItemsDiscount();
 
   const handleClickOutside = () => {
-    document.body.classList.remove("overflow-hidden");
     setShow(false);
-    // element.remove();
   };
 
-  useOnClickOutside(ref, handleClickOutside);
+  useOnClickOutside(ref, handleClickOutside, show);
+
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>, item: Props) => {
+      const { value } = e.target;
+      dispatch(valueQuantity({ ...item, quantity: Number(value) }));
+    },
+    [dispatch]
+  );
 
   return (
     <div className="md:relative md:mr-6 mr-2 md:p-0 p-4" ref={ref}>
@@ -49,7 +67,7 @@ const CartDetails: React.FC = (): React.ReactElement => {
             <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
           </svg>
           <span className="inline-block whitespace-nowrap rounded-[0.27rem] bg-danger-100 px-[0.65em] pt-[0.35em] pb-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none text-danger-700 absolute -top-2 -right-4">
-            {getItemsCount() ?? 0}
+            {cart.length}
           </span>
         </span>
         خلاصه پیش‌ فاکتور
@@ -155,7 +173,7 @@ const CartDetails: React.FC = (): React.ReactElement => {
                     <input
                       type="number"
                       className="peer block min-h-[auto] rounded border bg-gray-100 py-[.22rem] px-2 leading-[1.6] outline-none max-w-[100px] mr-2"
-                      // onChange={(e) => dispatch(valueQuantity(e.target.value))}
+                      onChange={(e) => handleChange(e, item)}
                       value={item.quantity}
                       min={0}
                     />

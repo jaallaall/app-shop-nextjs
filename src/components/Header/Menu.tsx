@@ -27,16 +27,14 @@ const Menu: React.FC<{ show: boolean }> = ({ show }): React.ReactElement => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
   const handleClick = () => {
-    document.body.classList.add("overflow-hidden");
     setShowMenu(!showMenu);
   };
 
   const handleClickOutside = () => {
-    document.body.classList.remove("overflow-hidden");
     setShowMenu(false);
   };
 
-  useOnClickOutside(ref, handleClickOutside);
+  useOnClickOutside(ref, handleClickOutside, showMenu);
   return (
     <div className="md:flex w-full flex-wrap items-center justify-between relative">
       <div

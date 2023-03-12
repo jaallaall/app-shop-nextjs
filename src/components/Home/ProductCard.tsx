@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback } from "react";
 import {
   addToCart,
   decrementQuantity,
@@ -19,21 +19,19 @@ interface Props {
 const ProductCard: React.FC<{
   item: Props;
 }> = ({ item }): React.ReactElement => {
-  const [show, setShow] = useState<boolean>(false);
-  const [inputVal, setInputVal] = useState(0);
-
   const dispatch = useAppDispatch();
   const cart = useAppSelector((state) => state.cartItems);
 
-  const handleChange = (e: any) => {
-    setInputVal(e.target.value);
-    dispatch(valueQuantity(e.target.value));
-  };
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const { value } = e.target;
+      dispatch(valueQuantity({ ...item, quantity: Number(value) }));
+    },
+    [dispatch, item]
+  );
 
   const isQuan =
     cart.length > 0 ? cart?.find((it) => it.id === item.id)?.quantity : 0;
-
-  console.log(cart);
 
   return !isQuan ? (
     <button
@@ -68,10 +66,8 @@ const ProductCard: React.FC<{
       <input
         type="number"
         className="peer block min-h-[auto] w-full rounded border bg-gray-100 py-[.42rem] px-3 leading-[1.6] outline-none"
-        onChange={(e) => dispatch(valueQuantity(e.target.value))}
+        onChange={handleChange}
         value={isQuan}
-        // defaultValue={isQuan}
-        min={0}
       />
       <button
         type="button"

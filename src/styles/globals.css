@@ -80,6 +80,7 @@
     text-align: right;
     color: #555;
     background-color: #f8f8f8;
+    position: relative;
   }
 
   body.overflow-hidden #overlay {

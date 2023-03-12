@@ -1,3 +1,4 @@
+import ProductsCategorization from "components/ProductsCategorization";
 import PurchaseProcess from "components/PurchaseProcess";
 import ProductsCarousel from "./ProductsCarousel";
 
@@ -7,6 +8,11 @@ const Home: React.FC = (): React.ReactElement => {
       <section>
         <div className="container mx-auto px-2">
           <ProductsCarousel />
+        </div>
+      </section>
+      <section>
+        <div className="container mx-auto px-2">
+          <ProductsCategorization />
         </div>
       </section>
       <section>
