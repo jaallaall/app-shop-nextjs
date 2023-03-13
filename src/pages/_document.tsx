@@ -7,6 +7,7 @@ export default function Document() {
       <body>
         <Main />
         <div id="overlay" />
+        <div id="sidebar" />
         <NextScript />
       </body>
     </Html>

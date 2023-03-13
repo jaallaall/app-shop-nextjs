@@ -1,17 +1,13 @@
 import { Inter } from "next/font/google";
 import { nextDynamic } from "components";
-import Layout from "components/Layout";
+import { getLayout } from "components/Layout";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const inter = Inter({ subsets: ["latin"] });
 
 const HomePage = () => {
   const Home = nextDynamic("Home");
-  return (
-    <Layout>
-      <Home />
-    </Layout>
-  );
+  return <Home />;
 };
 
 export async function getServerSideProps({ locale }: { locale: string }) {
@@ -24,5 +20,7 @@ export async function getServerSideProps({ locale }: { locale: string }) {
     },
   };
 }
+
+HomePage.getLayout = getLayout;
 
 export default HomePage;

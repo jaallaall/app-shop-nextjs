@@ -1,5 +1,5 @@
-import ProductsCategorization from "components/ProductsCategorization";
-import PurchaseProcess from "components/PurchaseProcess";
+import ProductsCategorization from "./ProductsCategorization";
+import PurchaseProcess from "./PurchaseProcess";
 import ProductsCarousel from "./ProductsCarousel";
 
 const Home: React.FC = (): React.ReactElement => {

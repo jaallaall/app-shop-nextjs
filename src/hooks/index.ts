@@ -1,3 +1,4 @@
 export * from "./useCountDown";
-export * from "./useOnClickOutside";
 export * from "./useMediaQuery";
+export * from "./useOnClickOutside";
+export * from "./useScrollDirection";

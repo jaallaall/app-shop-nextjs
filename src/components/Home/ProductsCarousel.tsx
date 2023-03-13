@@ -7,25 +7,8 @@ import "swiper/css/pagination";
 import "swiper/swiper.css";
 
 import { Navigation, Pagination } from "swiper";
-import { amount } from "utils";
+import { amount, product } from "utils";
 import ProductCard from "./ProductCard";
-
-const product = [
-  {
-    id: 1,
-    title: "زانو 90 درجه جوشی بدون درز شعاع بلند رده 40 بنکن (BENKAN)",
-    discount: 20,
-    size: 3,
-    price: 100000,
-  },
-  {
-    id: 2,
-    title: "لوله مانیسمان (فولادی بدون درز)",
-    discount: 30,
-    size: 2,
-    price: 300000,
-  },
-];
 
 const ProductsCarousel: React.FC = (): React.ReactElement => {
   return (
@@ -48,7 +31,7 @@ const ProductsCarousel: React.FC = (): React.ReactElement => {
         slidesPerView={1}
         centeredSlides={true}
         spaceBetween={20}
-        navigation={true}
+        // navigation={true}
         breakpoints={{
           640: {
             slidesPerView: 1,
@@ -63,7 +46,7 @@ const ProductsCarousel: React.FC = (): React.ReactElement => {
             spaceBetween: 20,
           },
         }}
-        modules={[Pagination, Navigation]}
+        // modules={[Pagination, Navigation]}
         className="mySwiper"
         dir="rtl"
       >
@@ -71,7 +54,9 @@ const ProductsCarousel: React.FC = (): React.ReactElement => {
           return (
             <SwiperSlide key={item.id}>
               <div className="min-h-[280px] border p-3 flex flex-col rounded-lg bg-white">
-                <h3 className="mb-3">{item.title}</h3>
+                <Link className="mb-3 text-lg" href={item.href}>
+                  {item.title}
+                </Link>
                 <div className="flex justify-between mt-auto">
                   <span>بنکن</span>
                   <span className="inline-block whitespace-nowrap rounded-[0.27rem] bg-danger-100 px-[0.65em] pt-[0.55em] pb-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none text-primary-700">

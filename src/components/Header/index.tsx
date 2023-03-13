@@ -1,4 +1,4 @@
-import { useMediaQuery } from "hooks";
+import { useMediaQuery, useScrollDirection } from "hooks";
 import Image from "next/image";
 import { useState } from "react";
 import CartDetails from "./CartDetails";
@@ -9,13 +9,19 @@ const Header: React.FC = (): React.ReactElement => {
   const matches = useMediaQuery("(min-width: 768px)");
   const [show, setShow] = useState<boolean>(false);
 
+  const scrollDirection = useScrollDirection();
+
   const handleClick = () => {
     setShow(!show);
   };
 
   return (
-    <header className="pt-3 shadow-sm sticky top-0 bg-white z-50">
-      <div className="container mx-auto flex items-center px-2">
+    <header
+      className={`shadow-sm sticky bg-white z-50 transform transition-transform top-0 duration-300 ${
+        scrollDirection === "down" ? "-translate-y-[80px]" : "translate-y-0"
+      }`}
+    >
+      <div className={`container mx-auto flex items-center px-2 py-3`}>
         {!matches && (
           <div className="flex-grow">
             <button
@@ -72,7 +78,7 @@ const Header: React.FC = (): React.ReactElement => {
           {matches && <CartDetails />}
         </div>
       </div>
-      <div className="container mx-auto pt-3 md:px-2">
+      <div className="container mx-auto md:px-2">
         <Menu show={show} />
       </div>
     </header>
